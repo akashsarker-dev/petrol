@@ -6,7 +6,7 @@ import Country from './components/Country/Country'
 import Footer from './components/Footer/Footer'
 import Header from './components/Header/Header'
 import Maps from './components/Maps/Maps'
-// import Navbar from './components/Navbar/Navbar'
+import Navbar from './components/Navbar/Navbar'
 import Services from './components/Services/Services'
 
 function App() {
@@ -14,7 +14,7 @@ function App() {
   return (
     <>
     <Header></Header>
-    {/* <Navbar></Navbar> */}
+    <Navbar></Navbar>
     <Banner></Banner>
     <Country></Country>
     <Services></Services>

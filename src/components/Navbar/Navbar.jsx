@@ -5,39 +5,35 @@ import {BsList} from 'react-icons/bs'
 const Navbar = () => {
   const [show , setShow] = useState(false)
   const handleClick = ()=>{
-    console.log('aaaa');
+    setShow(!show)
   }
   return (
-    <nav class=" bg-primary-color">
-            <div class="max-w-container mx-auto max-w-7xl py-[27px]">
-              <div class=" flex  items-center justify-between">
-
-                  <div>
-                    <img class="h-8 w-auto" src={Logo} alt="Your Company"/>
-                  </div>
-
-                  <div onClick={handleClick} className='md:hidden'>
-                  {
-                    show == true ? 'close' : 'bar'
-
-                  }
-                  {/* <BsList/> */}
-                  </div>
-
-                    <div class="md:flex items-center">
-                      {/* <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" --> */}
-                      <a href="#" class="text-white ml-[47px] text-sm font-medium" aria-current="page">Dashboard</a>
-                      <a href="#" class="text-white ml-[47px] text-sm font-medium">Team</a>
-                      <a href="#" class="text-white ml-[47px] text-sm font-medium">Projects</a>
-                      <a href="#" class="text-white ml-[47px] text-sm font-medium">Calendar</a>
-                    <button class=" py-3.5 px-8 border-2 text-white ml-[72px]">CONTACT</button>
-                    </div>
-              </div>
+    <nav class=" bg-primary-color py-[27px]">
+      <div class="max-w-container mx-auto">
+        <div class="flex justify-between items-center">
+            <div className='w-1/4'>
+              <img class="h-8 w-auto" src={Logo} alt="Your Company"/>
             </div>
-          
-            {/* <!-- Mobile menu, show/hide based on menu state. --> */}
 
-          </nav>
+              <div className='w-3/4 '>
+                  <ul className={`absolute text-white md:static md:flex md:justify-end items-center duration-300 md:gap-x-[47px] ${show ? 'top-40 left-40 ' : '-top-56 left-40'}`}>
+                    <li>Home</li>
+                    <li>About</li>
+                    <li>Services</li>
+                    <li>Gallery</li>
+                    <li>Blog</li>
+                    <button class=" py-3.5 px-8 border-2 text-white md:ml-[72px]">CONTACT</button>
+                  </ul>   
+              </div>
+            <div onClick={handleClick} className='md:hidden text-2xl'>
+              {
+                show == true ? 'close' : <BsList/>
+              }
+            </div>
+
+      </div>
+    </div>
+  </nav>
   )
 }
 
